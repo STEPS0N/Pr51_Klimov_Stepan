@@ -9,11 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Elements\" />
+    <None Remove="Images\door.png" />
+    <None Remove="Images\icon.png" />
+    <None Remove="Images\owner.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1004" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\door.png" />
+    <Resource Include="Images\icon.png" />
+    <Resource Include="Images\owner.png" />
   </ItemGroup>
 
 </Project>

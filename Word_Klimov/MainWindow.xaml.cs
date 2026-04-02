@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using Word_Klimov.Context;
 
 namespace Word_Klimov
 {
@@ -19,6 +21,24 @@ namespace Word_Klimov
         public MainWindow()
         {
             InitializeComponent();
+            LoadRooms();
+        }
+
+        public void LoadRooms()
+        {
+            for (int i = 0; i < 20; i++)
+                Parent.Children.Add(new Elements.Room(i));
+        }
+
+        private void Report(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Word Files (*.docx)|*.docx";
+            sfd.ShowDialog();
+            if (sfd.FileName != "")
+            {
+                OwnerContext.Report(sfd.FileName);
+            }
         }
     }
 }
